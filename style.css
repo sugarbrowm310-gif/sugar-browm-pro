@@ -784,6 +784,28 @@ section:nth-child(even) {
     line-height: 1.5;
 }
 
+.producto-gallery {
+    display: flex;
+    gap: 0.4rem;
+    margin-bottom: 0.8rem;
+    flex-wrap: wrap;
+}
+
+.producto-gallery img {
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid var(--light);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.producto-gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow);
+}
+
 .precio {
     font-size: 1.6rem;
     color: var(--secondary);
@@ -791,6 +813,16 @@ section:nth-child(even) {
     margin-top: auto;
     padding-top: 1rem;
     border-top: 2px solid var(--light);
+}
+
+.instagram-link {
+    color: #C13584;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.instagram-link:hover {
+    text-decoration: underline;
 }
 
 /* ====================== 

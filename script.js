@@ -213,6 +213,49 @@ function mostrarNotificacion(mensaje, tipo = 'info') {
 }
 
 // ====================== 
+// Galería en cada producto (miniaturas desde carpeta 'images')
+// ====================== 
+(function() {
+    const galleryImages = [
+        'images/tortas.jpeg',
+        'images/tortas (2).jpeg',
+        'images/carta.jpeg'
+    ];
+
+    const productosCards = document.querySelectorAll('.producto');
+
+    productosCards.forEach(producto => {
+        const productoInfo = producto.querySelector('.producto-info');
+        if (!productoInfo) return;
+
+        const galleryContainer = document.createElement('div');
+        galleryContainer.className = 'producto-gallery';
+
+        galleryImages.forEach(src => {
+            const img = document.createElement('img');
+            img.src = src;
+            img.alt = 'Galería Sugar Browm';
+            img.title = 'Ver imagen en grande';
+            img.addEventListener('click', function() {
+                if (modalImgCarta) {
+                    modalImgCarta.src = src;
+                    modalCarta.classList.add('activo');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+            galleryContainer.appendChild(img);
+        });
+
+        const precio = productoInfo.querySelector('.precio');
+        if (precio) {
+            productoInfo.insertBefore(galleryContainer, precio);
+        } else {
+            productoInfo.appendChild(galleryContainer);
+        }
+    });
+})();
+
+// ====================== 
 // Log de Carga
 // ====================== 
 console.log('✓ Sugar Browm - Script cargado correctamente');
