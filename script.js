@@ -107,6 +107,38 @@ filtroBtns.forEach(btn => {
 });
 
 // ====================== 
+// Cargar imágenes de la carpeta Sugar en cada producto
+// ======================
+(function() {
+    const sugarImagePaths = [];
+    for (let n = 25; n <= 90; n++) {
+        const num = n.toString().padStart(4, '0');
+        sugarImagePaths.push(`images/Sugar/IMG-20260328-WA${num}.jpg`);
+    }
+
+    const productosCards = document.querySelectorAll('.producto');
+
+    productosCards.forEach((producto, index) => {
+        const titulo = producto.querySelector('.producto-info h3')?.textContent.trim() || 'Producto Sugar';
+        const imgSrc = producto.dataset.img || sugarImagePaths[index % sugarImagePaths.length];
+
+        const productoImg = producto.querySelector('.producto-img');
+        if (!productoImg) return;
+
+        const badge = productoImg.querySelector('.categoria-badge');
+        productoImg.innerHTML = '';
+
+        const imgElement = document.createElement('img');
+        imgElement.src = imgSrc;
+        imgElement.alt = titulo;
+        imgElement.title = titulo;
+
+        productoImg.appendChild(imgElement);
+        if (badge) productoImg.appendChild(badge);
+    });
+})();
+
+// ====================== 
 // Scroll Suave para Enlaces de Navegación
 // ====================== 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
