@@ -150,8 +150,9 @@ filtroBtns.forEach(btn => {
         'Torta Frutos Rojos': 'images/Sugar/IMG-20260328-WA0061.jpg',
         'Lasaña Clásica': 'images/Sugar/IMG-20260328-WA0062.jpg',
         'Sanduche Italiano': 'images/Sugar/IMG-20260328-WA0063.jpg',
-        'Cupcake Vainilla': 'images/Sugar/IMG-20260328-WA0064.jpg',
-        'Brownie con Helado': 'images/Sugar/IMG-20260328-WA0065.jpg'
+        'Cupcake Vainilla': 'images/Sugar/cupcakes/IMG-20260328-WA0064.jpg',
+        'Brownie con Helado': 'images/Sugar/IMG-20260328-WA0065.jpg',
+        'Magdalena': 'images/Sugar/cupcakes/IMG-20260328-WA0064.jpg'
     };
 
     const sugarImagePaths = [];
