@@ -110,6 +110,50 @@ filtroBtns.forEach(btn => {
 // Cargar imágenes de la carpeta Sugar en cada producto
 // ======================
 (function() {
+    const imageMap = {
+        'Malteada de Cerveza': 'images/Sugar/IMG-20260328-WA0025.jpg',
+        'Malteada': 'images/Sugar/IMG-20260328-WA0026.jpg',
+        'Milo Frappe': 'images/Sugar/IMG-20260328-WA0027.jpg',
+        'Frappuccino': 'images/Sugar/IMG-20260328-WA0028.jpg',
+        'Jugos Naturales': 'images/Sugar/IMG-20260328-WA0029.jpg',
+        'Limonada Tropical': 'images/Sugar/IMG-20260328-WA0030.jpg',
+        'Sodas Italianas': 'images/Sugar/IMG-20260328-WA0031.jpg',
+        'Batidos': 'images/Sugar/IMG-20260328-WA0032.jpg',
+        'Batidos Saludables': 'images/Sugar/IMG-20260328-WA0033.jpg',
+        'Affogato Sugar': 'images/Sugar/IMG-20260328-WA0034.jpg',
+        'Affogato': 'images/Sugar/IMG-20260328-WA0035.jpg',
+        'Cappuccino': 'images/Sugar/IMG-20260328-WA0036.jpg',
+        'Café Espresso': 'images/Sugar/IMG-20260328-WA0037.jpg',
+        'Aromática': 'images/Sugar/IMG-20260328-WA0038.jpg',
+        'Té': 'images/Sugar/IMG-20260328-WA0039.jpg',
+        'Té Chai': 'images/Sugar/IMG-20260328-WA0040.jpg',
+        'Arcoíris': 'images/Sugar/IMG-20260328-WA0041.jpg',
+        'Atardecer': 'images/Sugar/IMG-20260328-WA0042.jpg',
+        'Servicio de Michelada': 'images/Sugar/IMG-20260328-WA0043.jpg',
+        'Piña Colada': 'images/Sugar/IMG-20260328-WA0044.jpg',
+        'Margarita Tradicional': 'images/Sugar/IMG-20260328-WA0045.jpg',
+        'Margarita Cerezada o Mango': 'images/Sugar/IMG-20260328-WA0046.jpg',
+        'Mojito': 'images/Sugar/IMG-20260328-WA0047.jpg',
+        'Mojito de Fresa': 'images/Sugar/IMG-20260328-WA0048.jpg',
+        'Hechizo Sugar': 'images/Sugar/IMG-20260328-WA0049.jpg',
+        'Órgasmo': 'images/Sugar/IMG-20260328-WA0050.jpg',
+        'Cerveza de Colores': 'images/Sugar/IMG-20260328-WA0051.jpg',
+        'Torta Chocolate Premium': 'images/Sugar/IMG-20260328-WA0052.jpg',
+        'Torta Fresas Encantada': 'images/Sugar/IMG-20260328-WA0053.jpg',
+        'Torta Tres Leches Sugar': 'images/Sugar/IMG-20260328-WA0054.jpg',
+        'Torta Zanahoria Gourmet': 'images/Sugar/IMG-20260328-WA0055.jpg',
+        'Cheesecake New York': 'images/Sugar/IMG-20260328-WA0056.jpg',
+        'Torta Red Velvet': 'images/Sugar/IMG-20260328-WA0057.jpg',
+        'Torta Piña Colada': 'images/Sugar/IMG-20260328-WA0058.jpg',
+        'Torta Oreo Deluxe': 'images/Sugar/IMG-20260328-WA0059.jpg',
+        'Torta Lúcuma Premium': 'images/Sugar/IMG-20260328-WA0060.jpg',
+        'Torta Frutos Rojos': 'images/Sugar/IMG-20260328-WA0061.jpg',
+        'Lasaña Clásica': 'images/Sugar/IMG-20260328-WA0062.jpg',
+        'Sanduche Italiano': 'images/Sugar/IMG-20260328-WA0063.jpg',
+        'Cupcake Vainilla': 'images/Sugar/IMG-20260328-WA0064.jpg',
+        'Brownie con Helado': 'images/Sugar/IMG-20260328-WA0065.jpg'
+    };
+
     const sugarImagePaths = [];
     for (let n = 25; n <= 90; n++) {
         const num = n.toString().padStart(4, '0');
@@ -120,7 +164,7 @@ filtroBtns.forEach(btn => {
 
     productosCards.forEach((producto, index) => {
         const titulo = producto.querySelector('.producto-info h3')?.textContent.trim() || 'Producto Sugar';
-        const imgSrc = producto.dataset.img || sugarImagePaths[index % sugarImagePaths.length];
+        const imgSrc = producto.dataset.img || imageMap[titulo] || sugarImagePaths[index % sugarImagePaths.length];
 
         const productoImg = producto.querySelector('.producto-img');
         if (!productoImg) return;
