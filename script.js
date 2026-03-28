@@ -155,6 +155,26 @@ filtroBtns.forEach(btn => {
         'Magdalena': 'images/Sugar/cupcakes/IMG-20260328-WA0079.jpg'
     };
 
+    const keywordImageMap = [
+        { keywords: ['malteada','batido','milo','frappe'], path: 'images/Sugar/malteadas/IMG-20260328-WA0032.jpg' },
+        { keywords: ['café','cafe','cappuccino','espresso','affogato'], path: 'images/Sugar/cafe/IMG-20260328-WA0071.jpg' },
+        { keywords: ['té','aromática','limonada','jugo','soda','bebida'], path: 'images/Sugar/bebidas/IMG-20260328-WA0029.jpg' },
+        { keywords: ['margarita','mojito','coctel','michelada','piña','arcoíris','atardecer'], path: 'images/Sugar/micheladas,cocteles,batidos/IMG-20260328-WA0044.jpg' },
+        { keywords: ['torta','cheesecake','red velvet','oreo','chocolate','frutos'], path: 'images/Sugar/tortas/IMG-20260328-WA0052.jpg' },
+        { keywords: ['cupcake','magdalena'], path: 'images/Sugar/cupcakes/IMG-20260328-WA0064.jpg' },
+        { keywords: ['brownie','postre'], path: 'images/Sugar/postres/IMG-20260328-WA0065.jpg' },
+        { keywords: ['lasaña','lasaña'], path: 'images/Sugar/lasañas/IMG-20260328-WA0050.jpg' },
+        { keywords: ['sanduche','sanduiche','sandwich'], path: 'images/Sugar/sanduches/IMG-20260328-WA0063.jpg' }
+    ];
+
+    const normalizeText = text => text.toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu, '');
+
+    const findImageByKeyword = title => {
+        const low = normalizeText(title);
+        const candidate = keywordImageMap.find(entry => entry.keywords.some(k => low.includes(normalizeText(k))));
+        return candidate ? candidate.path : null;
+    };
+
     const sugarImagePaths = [];
     const categoryPaths = [
         'images/Sugar/bebidas',
@@ -180,7 +200,9 @@ filtroBtns.forEach(btn => {
 
     productosCards.forEach((producto, index) => {
         const titulo = producto.querySelector('.producto-info h3')?.textContent.trim() || 'Producto Sugar';
-        const imgSrc = producto.dataset.img || imageMap[titulo] || sugarImagePaths[index % sugarImagePaths.length];
+        const titleNormalized = titulo.trim();
+        const keywordSrc = findImageByKeyword(titleNormalized);
+        const imgSrc = producto.dataset.img || imageMap[titulo] || keywordSrc || sugarImagePaths[index % sugarImagePaths.length];
 
         const productoImg = producto.querySelector('.producto-img');
         if (!productoImg) return;
