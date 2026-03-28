@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sugar Browm - Lo Hacemos Con Amor">
+    <title>Sugar Browm | Lo Hacemos Con Amor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navegación -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-brand">
+                <img src="images/SUGAR-BROWM.png" alt="Sugar Browm Logo" class="logo-img">
+                <p class="tagline">Lo Hacemos Con Amor</p>
+            </div>
+            <ul class="navbar-menu">
+                <li><a href="#inicio" class="nav-link">Inicio</a></li>
+                <li><a href="#menu" class="nav-link">Menú</a></li>
+                <li><a href="#tortas" class="nav-link">🍰 Tortas</a></li>
+                <li><a href="#ubicacion" class="nav-link">Ubicación</a></li>
+                <li><a href="#contacto" class="nav-link">Contacto</a></li>
+            </ul>
+            <button class="carrito-btn" id="cartBtn">🛒 <span id="cartCount">0</span></button>
+            <button class="menu-toggle" id="menuToggle">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="inicio" class="hero">
+        <div class="hero-bg-slider">
+            <div class="hero-slide" style="background: linear-gradient(135deg, rgba(255, 107, 157, 0.2) 0%, rgba(255, 165, 0, 0.15) 100%), url('images/tortas.jpeg'); background-size: cover; background-position: center;"></div>
+            <div class="hero-slide" style="background: linear-gradient(135deg, rgba(0, 206, 209, 0.2) 0%, rgba(255, 107, 157, 0.15) 100%), url('images/carta.jpeg'); background-size: cover; background-position: center;"></div>
+            <div class="hero-slide" style="background: linear-gradient(135deg, rgba(255, 165, 0, 0.2) 0%, rgba(0, 206, 209, 0.15) 100%), url('images/tortas.jpeg'); background-size: cover; background-position: center;"></div>
+        </div>
+        <div class="hero-content">
+            <h2 class="hero-title">Sugar Browm</h2>
+            <p class="hero-subtitle">Lo Hacemos Con Amor</p>
+            <p class="hero-description">☕ Café | 🍹 Cócteles | 🍰 Sabor Premium</p>
+            <a href="#menu" class="btn btn-primary">Ver Menú</a>
+        </div>
+    </header>
+
+    <!-- Sección de Carta -->
+    <section class="carta-section">
+        <div class="container">
+            <h2 class="section-title">Nuestra Carta</h2>
+            <div class="carta-grid">
+                <div class="carta-item" data-carta="tortas">
+                    <img src="images/tortas.jpeg" alt="Carta bebidas frías" class="carta-img">
+                    <h3>Bebidas Frías</h3>
+                    <span class="ver-mas">Ver Carta</span>
+                </div>
+                <div class="carta-item" data-carta="cocteles">
+                    <img src="images/carta.jpeg" alt="Carta bebidas calientes" class="carta-img">
+                    <h3>Cócteles</h3>
+                    <span class="ver-mas">Ver Carta</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal para Cartas -->
+    <div id="modal-carta" class="modal-carta">
+        <div class="modal-contenido-carta">
+            <button class="modal-cerrar" id="cerrar-modal-carta">&times;</button>
+            <img id="modal-img-carta" src="" alt="Carta ampliada" class="modal-img-carta">
+        </div>
+    </div>
+
+    <!-- Menú de Productos -->
+    <section id="menu" class="menu-section">
+        <div class="container">
+            <h2 class="section-title">Nuestro Menú</h2>
+            
+            <!-- Filtros -->
+            <div class="filtros">
+                <button class="filtro-btn active" data-filtro="todos">Todos</button>
+                <button class="filtro-btn" data-filtro="bebidas-frias">Bebidas Frías</button>
+                <button class="filtro-btn" data-filtro="bebidas-calientes">Bebidas Calientes</button>
+                <button class="filtro-btn" data-filtro="cocteles-sin-alcohol">Cócteles S/A</button>
+                <button class="filtro-btn" data-filtro="cocteles-alcohol">Cócteles C/A</button>
+                <button class="filtro-btn" data-filtro="tortas">🍰 Tortas</button>
+            </div>
+
+            <!-- Grid de Productos -->
+            <div class="productos-grid">
+                
+                <!-- BEBIDAS FRÍAS -->
+                <div class="producto" data-filtro="bebidas-frias">
+                    <div class="producto-img" style="background: linear-gradient(135deg, #8B6438 0%, #A0826D 100%); display: flex; align-items: center; justify-content: center;">
+                        <span style="color: white; font-size: 3rem;">🍺</span>
+                        <span class="categoria-badge">Bebida Fría</span>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Matlacada de Cerveza</h3>
+                        <p class="descripcion">Helado de vainilla, cerveza artesanal, crema batida, cereza, salsa y topping de chocolate</p>
+                        <span class="precio">$23.900</span>
+                    </div>
+                </div>
+
+                <div class="producto" data-filtro="bebidas-frias">
+                    <div class="producto-img" style="background: linear-gradient(135deg, #D2691E 0%, #E8A76A 100%); display: flex; align-items: center; justify-content: center;">
+                        <span style="color: white; font-size: 3rem;">🍦</span>
+                        <span class="categoria-badge">Bebida Fría</span>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Matlacada</h3>
+                        <p class="descripcion">100% helado premium, crema batida, cereza, salsa y topping según sabor</p>
+                        <span class="precio">$15.900</span>
+                    </div>
+                </div>
+
+                <div class="producto" data-filtro="bebidas-frias">
+                    <div class="producto-img" style="background: linear-gradient(135deg, #A0826D 0%, #C4A57B 100%); display: flex; align-items: center; justify-content: center;">
+                        <span style="color: white; font-size: 3rem;">☕</span>
+                        <span class="categoria-badge">Bebida Fría</span>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Milo Frappe</h3>
+                        <p class="descripcion">Milo, salsa de arequipe y malvavisco</p>
+                        <span class="precio">$14.900</span>
+                    </div>
+                </div>
+
+                <div class="producto" data-filtro="bebidas-frias">
+                    <div class="producto-img" style="background: linear-gradient(135deg, #8B4513 0%, #B8860B 100%); display: flex; align-items: center; justify-content: center;">
+                        <span style="color: white; font-size: 3rem;">🥤</span>
+                        <span class="categoria-badge">Bebida Fría</span>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Frappuccino</h3>
+                        <p class="descripcion">Cappuccino granizado, salsa de arequipe, crema batida</p>
+                        <span class="precio">$13.900</span>
+                    </div>
+                </div>
+
+                <div class="producto" data-filtro="bebidas-frias">
+                    <div class="producto-img" style="background: linear-gradient(135deg, #DAA520 0%, #F0E68C 100%); display: flex; align-items: center; justify-content: center;">
+                        <span style="color: white; font-size: 3rem;">🍊</span>
+                        <span class="categoria-badge">Bebida Fría</span>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Jugos Naturales</h3>
+                        <p class="descripcion">En agua $9.900 | En leche $11.900 | Mix dos frutos $13.900</p>
+                        <span class="precio">Desde $9.900</span>
+                    </div>
+                </div>
+
+                <div class="producto" data-filtro="bebidas-frias">
+                    <div class="producto-img" style="background: linear-gradient(135deg, #FF7F50 0%, #FFB6C1 100%); display: flex; align-items: center; justify-content: center;">
+                        <span style="color: white; font-size: 3rem;">🍋</span>
+                        <span class="categoria-badge">Bebida Fría</span>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Limonada Tropical</h3>
+                        <p class="descripcion">Infusión de flor de Jamaica, zumo de limón</p>
+                        <span class="precio">$14.900</span>
+                    </div>
+                </div>
+
+                <div class="producto" data-filtro="bebidas-frias">
+                    <div class="producto-img" style="background: linear-gradient(135deg, #FF69B4 0%, #FFB6D9 100%); display: flex; align-items: center; justify-content: center;">
+                        <span style="color: white; font-size: 3rem;">🥤</span>
+                        <span class="categoria-badge">Bebida Fría</span>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Sodas Italianas</h3>
+                        <p class="descripcion">Frutos rojos | Frutos verdes - $14.900</p>
+                        <span class="precio">$14.900</span>
+                    </div>
+                </div>
+
+                <div class="producto" data-filtro="bebidas-frias">
+                    <div class="producto-img" style="background: linear-gradient(135deg, #FF1493 0%, #FF69B4 100%); display: flex; align-items: center; justify-content: center;">
+                        <span style="color: white; font-size: 3rem;">🍓</span>
+                        <span class="categoria-badge">Bebida Fría</span>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Batidos</h3>
+                        <p class="descripcion">Frutos rojos (mora, fresa, arándanos), Mango cremoso, frutas verdes</p>
+                        <span class="precio">$16.900</span>
+                    </div>
+                </div>
+
+                <div class="producto" data-filtro="bebidas-frias">
+                    <div class="producto-img" style="background: linear-gradient(135deg, #32CD32 0%, #90EE90 100%); display: flex; align-items: center; justify-content: center;">
+                        <span style="color: white; font-size: 3rem;">🥗</span>
+                        <span class="categoria-badge">Bebida Fría</span>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Batidos Saludables</h3>
+                        <p class="descripcion">Banana, avena y semillas de chia | Piña, hierba buena y pepino</p>
+                        <span class="precio">$14.900</span>
+                    </div>
+                </div>
+
+                <!-- BEBIDAS CALIENTES -->
+                <div class="producto" data-filtro="bebidas-calientes">
+                    <div class="producto-img" style="background: linear-gradient(135deg, #8B4513 0%, #BC8F8F 100%); display: flex; align-items: center; justify-content: center;">
+                        <span style="color: white; font-size: 3rem;">☕</span>
+                        <span class="categoria-badge">Bebida Caliente</span>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Affogato Sugar</h3>
+                        <p class="descripcion">Café espresso intenso, helado de vainilla, crema de whisky, salsa de arequipe</p>
+                        <span class="precio">$15.900</span>
+                    </div>
+                </div>
+
+                <div class="producto" data-filtro="bebidas-calientes">
+                    <div class="producto-img" style="background: linear-gradient(135deg, #6B4423 0%, #A67C52 100%); display: flex; align-items: center; justify-content: center;">
+                        <span style="color: white; font-size: 3rem;">☕</span>
+                        <span class="categoria-badge">Bebida Caliente</span>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Affogato</h3>
+                        <p class="descripcion">Deliciosa mezcla entre café espresso intenso y helado de vainilla</p>
+                        <span class="precio">$12.900</span>
+                    </div>
+                </div>
+
+                <div class="producto" data-filtro="bebidas-calientes">
+                    <div class="producto-img" style="background: linear-gradient(135deg, #704214 0%, #996633 100%); display: flex; align-items: center; justify-content: center;">
+                        <span style="color: white; font-size: 3rem;">🥛</span>
+                        <span class="categoria-badge">Bebida Caliente</span>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Cappuccino</h3>
+                        <p class="descripcion">Delicado equilibrio entre café espresso intenso y leche vaporizada</p>
+                        <span class="precio">$8.900</span>
+                    </div>
+                </div>
+
+                <div class="producto" data-filtro="bebidas-calientes">
+                    <div class="producto-img" style="background: linear-gradient(135deg, #3E2723 0%, #795548 100%); display: flex; align-items: center; justify-content: center;">
+                        <span style="color: white; font-size: 3rem;">☕</span>
+                        <span class="categoria-badge">Bebida Caliente</span>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Café Espresso</h3>
+                        <p class="descripcion">Café concentrado, aroma intenso</p>
+                        <span class="precio">$5.900</span>
+                    </div>
+                </div>
+
+                <div class="producto" data-filtro="bebidas-calientes">
+                    <div class="producto-img" style="background: linear-gradient(135deg, #228B22 0%, #90EE90 100%); display: flex; align-items: center; justify-content: center;">
+                        <span style="color: white; font-size: 3rem;">🍵</span>
+                        <span class="categoria-badge">Bebida Caliente</span>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Aromática</h3>
+                        <p class="descripcion">Infusión de té, frutas y hierbas aromáticas - Frutos verdes/rojos</p>
+                        <span class="precio">$8.900</span>
+                    </div>
+                </div>
+
+                <div class="producto" data-filtro="bebidas-calientes">
+                    <div class="producto-img" style="background: linear-gradient(135deg, #1C1C1C 0%, #404040 100%); display: flex; align-items: center; justify-content: center;">
+                        <span style="color: white; font-size: 3rem;">🫖</span>
+                        <span class="categoria-badge">Bebida Caliente</span>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Té</h3>
+                        <p class="descripcion">Infusión de té, sabor a elección</p>
+                        <span class="precio">$4.900</span>
+                    </div>
+                </div>
+
+                <div class="producto" data-filtro="bebidas-calientes">
+                    <div class="producto-img" style="background: linear-gradient(135deg, #8B4513 0%, #CD853F 100%); display: flex; align-items: center; justify-content: center;">
+                        <span style="color: white; font-size: 3rem;">🫖</span>
+                        <span class="categoria-badge">Bebida Caliente</span>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Té Chai</h3>
+                        <p class="descripcion">Mezcla perfecta de té negro, café, leche, jengibre, nuez moscada, curcuma, cardamomo, canela y clavo de olor</p>
+                        <span class="precio">$9.900</span>
+                    </div>
+                </div>
+
+                <!-- CÓCTELES SIN ALCOHOL -->
+                <div class="producto" data-filtro="cocteles-sin-alcohol">
+                    <div class="producto-img" style="background: linear-gradient(135deg, #FF1493 0%, #FFB6D9 100%); display: flex; align-items: center; justify-content: center;">
+                        <span style="color: white; font-size: 3rem;">🌈</span>
+                        <span class="categoria-badge">Cóctel S/A</span>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Arcoíris</h3>
+                        <p class="descripcion">Gatorade, jugo de naranja, granadina</p>
+                        <span class="precio">$15.900</span>
+                    </div>
+                </div>
+
+                <div class="producto" data-filtro="cocteles-sin-alcohol">
+                    <div class="producto-img" style="background: linear-gradient(135deg, #FF8C00 0%, #FFD700 100%); display: flex; align-items: center; justify-content: center;">
+                        <span style="color: white; font-size: 3rem;">🍹</span>
+                        <span class="categoria-badge">Cóctel S/A</span>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Atardecer</h3>
+                        <p class="descripcion">Jugo de naranja, sprite, granadina</p>
+                        <span class="precio">$14.900</span>
+                    </div>
+                </div>
+
+                <div class="producto" data-filtro="cocteles-sin-alcohol">
+                    <div class="producto-img" style="background: linear-gradient(135deg, #FFE4B5 0%, #FFDEAD 100%); display: flex; align-items: center; justify-content: center;">
+                        <span style="color: #333; font-size: 3rem;">🍋</span>
+                        <span class="categoria-badge">Cóctel S/A</span>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Servicio de Michelada</h3>
+                        <p class="descripcion">Vaso con borde de sal o tamarindo, zumo de limón, hielo</p>
+                        <span class="precio">$2.900</span>
+                    </div>
+                </div>
+
+                <!-- CÓCTELES CON ALCOHOL -->
+                <div class="producto" data-filtro="cocteles-alcohol">
+                    <div class="producto-img" style="background: linear-gradient(135deg, #FF69B4 0%, #FFB6C1 100%); display: flex; align-items: center; justify-content: center;">
+                        <span style="color: white; font-size: 3rem;">🍹</span>
+                        <span class="categoria-badge">Cóctel C/A</span>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Piña Colada</h3>
+                        <p class="descripcion">Ron blanco, zumo de piña, crema de coco</p>
+                        <span class="precio">$26.900</span>
+                    </div>
+                </div>
+
+                <div class="producto" data-filtro="cocteles-alcohol">
+                    <div class="producto-img" style="background: linear-gradient(135deg, #00CED1 0%, #E0FFFF 100%); display: flex; align-items: center; justify-content: center;">
+                        <span style="color: white; font-size: 3rem;">🍹</span>
+                        <span class="categoria-badge">Cóctel C/A</span>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Margarita Tradicional</h3>
+                        <p class="descripcion">Tequila, triple seco y jugo de limón</p>
+                        <span class="precio">$23.900</span>
+                    </div>
+                </div>
+
+                <div class="producto" data-filtro="cocteles-alcohol">
+                    <div class="producto-img" style="background: linear-gradient(135deg, #FF6347 0%, #FFA07A 100%); display: flex; align-items: center; justify-content: center;">
+                        <span style="color: white; font-size: 3rem;">🥭</span>
+                        <span class="categoria-badge">Cóctel C/A</span>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Margarita Cerezada o Mango</h3>
+                        <p class="descripcion">Tequila, triple seco, cereza o mango</p>
+                        <span class="precio">$26.900</span>
+                    </div>
+                </div>
+
+                <div class="producto" data-filtro="cocteles-alcohol">
+                    <div class="producto-img" style="background: linear-gradient(135deg, #32CD32 0%, #7FFF00 100%); display: flex; align-items: center; justify-content: center;">
+                        <span style="color: white; font-size: 3rem;">🌿</span>
+                        <span class="categoria-badge">Cóctel C/A</span>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Mojito</h3>
+                        <p class="descripcion">Ron blanco, hierba buena y lima</p>
+                        <span class="precio">$22.900</span>
+                    </div>
+                </div>
+
+                <div class="producto" data-filtro="cocteles-alcohol">
+                    <div class="producto-img" style="background: linear-gradient(135deg, #FF1493 0%, #FF69B4 100%); display: flex; align-items: center; justify-content: center;">
+                        <span style="color: white; font-size: 3rem;">🍓</span>
+                        <span class="categoria-badge">Cóctel C/A</span>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Mojito de Fresa</h3>
+                        <p class="descripcion">Ron blanco, fresas y hierba buena</p>
+                        <span class="precio">$25.900</span>
+                    </div>
+                </div>
+
+                <div class="producto" data-filtro="cocteles-alcohol">
+                    <div class="producto-img" style="background: linear-gradient(135deg, #9370DB 0%, #DDA0DD 100%); display: flex; align-items: center; justify-content: center;">
+                        <span style="color: white; font-size: 3rem;">✨</span>
+                        <span class="categoria-badge">Cóctel C/A</span>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Hechizo Sugar</h3>
+                        <p class="descripcion">Smirnoff, vodka, pócima secreta</p>
+                        <span class="precio">$27.900</span>
+                    </div>
+                </div>
+
+                <div class="producto" data-filtro="cocteles-alcohol">
+                    <div class="producto-img" style="background: linear-gradient(135deg, #8B008B 0%, #DA70D6 100%); display: flex; align-items: center; justify-content: center;">
+                        <span style="color: white; font-size: 3rem;">💜</span>
+                        <span class="categoria-badge">Cóctel C/A</span>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Órgasmo</h3>
+                        <p class="descripcion">Licor de café, licor de almendras, crema de whisky</p>
+                        <span class="precio">$28.900</span>
+                    </div>
+                </div>
+
+                <div class="producto" data-filtro="cocteles-alcohol">
+                    <div class="producto-img" style="background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%); display: flex; align-items: center; justify-content: center;">
+                        <span style="color: white; font-size: 3rem;">🍺</span>
+                        <span class="categoria-badge">Cóctel C/A</span>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Cerveza de Colores</h3>
+                        <p class="descripcion">Cerveza con un toque de color y sabor, michelada con sales de colores</p>
+                        <span class="precio">$12.900</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Tortas -->
+    <section id="tortas" class="tortas-section">
+        <div class="container">
+            <h2 class="section-title">🍰 Nuestras Tortas</h2>
+            <p class="section-subtitle">Elaboradas con ingredientes premium, recetas caseras y mucho amor</p>
+            
+            <!-- Filtros de Tortas -->
+            <div class="filtros">
+                <button class="filtro-btn active" data-filtro="todas-tortas">Todas</button>
+                <button class="filtro-btn" data-filtro="chocolate">Chocolate</button>
+                <button class="filtro-btn" data-filtro="frutas">Frutas</button>
+                <button class="filtro-btn" data-filtro="especiales">Especiales</button>
+            </div>
+
+            <!-- Grid de Tortas -->
+            <div class="productos-grid">
+                <!-- Torta Chocolate Premium -->
+                <div class="producto" data-filtro="tortas">
+                    <div class="producto-img" style="background: linear-gradient(135deg, #8B4513 0%, #5C3317 100%); display: flex; align-items: center; justify-content: center;">
+                        <span style="color: white; font-size: 3rem;">🍫</span>
+                        <span class="categoria-badge">Torta</span>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Torta Chocolate Premium</h3>
+                        <p class="descripcion">Bizcocho de chocolate belga, relleno de mousse y ganache artesanal</p>
+                        <span class="precio">Individual $8.900 | Mediana $35.000 | Grande $55.000</span>
+                    </div>
+                </div>
+
+                <!-- Torta Fresas Encantada -->
+                <div class="producto" data-filtro="tortas">
+                    <div class="producto-img" style="background: linear-gradient(135deg, #FF69B4 0%, #FF1493 100%); display: flex; align-items: center; justify-content: center;">
+                        <span style="color: white; font-size: 3rem;">🍓</span>
+                        <span class="categoria-badge">Torta</span>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Torta Fresas Encantada</h3>
+                        <p class="descripcion">Bizcocho vainilla, crema chantilly y fresas frescas con merengue</p>
+                        <span class="precio">Individual $9.900 | Mediana $38.000 | Grande $59.000</span>
+                    </div>
+                </div>
+
+                <!-- Torta Tres Leches -->
+                <div class="producto" data-filtro="tortas">
+                    <div class="producto-img" style="background: linear-gradient(135deg, #F4A460 0%, #D2B48C 100%); display: flex; align-items: center; justify-content: center;">
+                        <span style="color: white; font-size: 3rem;">🥛</span>
+                        <span class="categoria-badge">Torta</span>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Torta Tres Leches Sugar</h3>
+                        <p class="descripcion">Bizcocho esponjoso bañado en tres leches, con crema y frutas</p>
+                        <span class="precio">Individual $7.900 | Mediana $32.000 | Grande $50.000</span>
+                    </div>
+                </div>
+
+                <!-- Torta Zanahoria Gourmet -->
+                <div class="producto" data-filtro="tortas">
+                    <div class="producto-img" style="background: linear-gradient(135deg, #FF8C00 0%, #FFA500 100%); display: flex; align-items: center; justify-content: center;">
+                        <span style="color: white; font-size: 3rem;">🥕</span>
+                        <span class="categoria-badge">Torta</span>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Torta Zanahoria Gourmet</h3>
+                        <p class="descripcion">Bizcocho de zanahoria con nueces, cream cheese y decoración gourmet</p>
+                        <span class="precio">Individual $8.500 | Mediana $34.000 | Grande $54.000</span>
+                    </div>
+                </div>
+
+                <!-- Cheesecake New York -->
+                <div class="producto" data-filtro="tortas">
+                    <div class="producto-img" style="background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%); display: flex; align-items: center; justify-content: center;">
+                        <span style="color: white; font-size: 3rem;">🧀</span>
+                        <span class="categoria-badge">Torta</span>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Cheesecake New York</h3>
+                        <p class="descripcion">Queso crema premium, base galleta, salsa frutas rojas y decoración elegante</p>
+                        <span class="precio">Individual $10.900 | Mediana $42.000 | Grande $65.000</span>
+                    </div>
+                </div>
+
+                <!-- Torta Red Velvet -->
+                <div class="producto" data-filtro="tortas">
+                    <div class="producto-img" style="background: linear-gradient(135deg, #C41E3A 0%, #8B0000 100%); display: flex; align-items: center; justify-content: center;">
+                        <span style="color: white; font-size: 3rem;">❤️</span>
+                        <span class="categoria-badge">Torta</span>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Torta Red Velvet</h3>
+                        <p class="descripcion">Bizcocho terciopelo rojo, relleno queso crema, frosting blanco</p>
+                        <span class="precio">Individual $9.900 | Mediana $39.000 | Grande $60.000</span>
+                    </div>
+                </div>
+
+                <!-- Torta Piña Colada -->
+                <div class="producto" data-filtro="tortas">
+                    <div class="producto-img" style="background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%); display: flex; align-items: center; justify-content: center;">
+                        <span style="color: white; font-size: 3rem;">🍍</span>
+                        <span class="categoria-badge">Torta</span>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Torta Piña Colada</h3>
+                        <p class="descripcion">Bizcocho de piña, mousse de coco y crema fresca con cocodrillo</p>
+                        <span class="precio">Individual $9.500 | Mediana $37.000 | Grande $57.000</span>
+                    </div>
+                </div>
+
+                <!-- Torta Oreo Deluxe -->
+                <div class="producto" data-filtro="tortas">
+                    <div class="producto-img" style="background: linear-gradient(135deg, #000000 0%, #333333 100%); display: flex; align-items: center; justify-content: center;">
+                        <span style="color: white; font-size: 3rem;">🍪</span>
+                        <span class="categoria-badge">Torta</span>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Torta Oreo Deluxe</h3>
+                        <p class="descripcion">Bizcocho chocolate con galletas Oreo, relleno crema y toppings crujientes</p>
+                        <span class="precio">Individual $9.900 | Mediana $39.000 | Grande $60.000</span>
+                    </div>
+                </div>
+
+                <!-- Torta Lúcuma -->
+                <div class="producto" data-filtro="tortas">
+                    <div class="producto-img" style="background: linear-gradient(135deg, #DAA520 0%, #B8860B 100%); display: flex; align-items: center; justify-content: center;">
+                        <span style="color: white; font-size: 3rem;">✨</span>
+                        <span class="categoria-badge">Torta</span>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Torta Lúcuma Premium</h3>
+                        <p class="descripcion">Bizcocho lúcuma peruano, mousse de lúcuma, decoración con oro comestible</p>
+                        <span class="precio">Individual $10.900 | Mediana $42.000 | Grande $65.000</span>
+                    </div>
+                </div>
+
+                <!-- Torta Frutos Rojos -->
+                <div class="producto" data-filtro="tortas">
+                    <div class="producto-img" style="background: linear-gradient(135deg, #DC143C 0%, #8B0000 100%); display: flex; align-items: center; justify-content: center;">
+                        <span style="color: white; font-size: 3rem;">🍇</span>
+                        <span class="categoria-badge">Torta</span>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Torta Frutos Rojos</h3>
+                        <p class="descripcion">Bizcocho vainilla, mousse frutos rojos, arándanos, frambuesas y moras</p>
+                        <span class="precio">Individual $9.900 | Mediana $38.000 | Grande $59.000</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="torta-nota">
+                <p>💝 <strong>Pedidos especiales:</strong> Consulta por tortas personalizadas, diseños especiales y sabores a tu gusto. Contáctanos via WhatsApp: <a href="https://wa.me/573147649147" target="_blank">+57 314 764 9147</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Ubicación -->
+    <section id="ubicacion" class="ubicacion-section">
+        <div class="container">
+            <h2 class="section-title">Encuéntranos</h2>
+            <div class="ubicacion-content">
+                <div class="ubicacion-info">
+                    <h3>📍 Nuestra Ubicación</h3>
+                    <p><strong>Carrera 4 # 5-27, Villa Reina, La Guajira</strong></p>
+                    <p>Barrio Villa Reina</p>
+                    <h3 style="margin-top: 2rem;">📞 Contacto</h3>
+                    <p><a href="tel:+573147649147">☎️ +57 314 764 9147</a></p>
+                    <a href="https://wa.me/573147649147?text=Hola%20Sugar%20Browm!%20Me%20gustaría%20conocer%20más%20sobre%20sus%20productos" target="_blank" class="btn btn-whatsapp">
+                        💬 Escríbenos a WhatsApp
+                    </a>
+                </div>
+                <div class="ubicacion-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.259987640089!2d-72.64266!3d11.48045!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e5f5f5f5f5f5f5f%3A0x0!2sCarrera%204%2C%20Villa%20Reina%2C%20La%20Guajira!5e0!3m2!1ses!2sco!4v1234567890" width="100%" height="400" style="border:0; border-radius: 8px;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Newsletter -->
+    <section class="newsletter-section">
+        <div class="container">
+            <h2>Suscríbete a Nuestro Newsletter</h2>
+            <p>Recibe ofertas especiales, nuevos productos y promociones exclusivas</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Tu correo electrónico" required>
+                <button type="submit" class="btn btn-primary">Suscribirse</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Sección de 3 Columnas -->
+    <section class="tres-columnas">
+        <div class="container">
+            <div class="columnas-grid">
+                <!-- Columna 1: Favoritos -->
+                <div class="columna-item">
+                    <h3>❤️ Favoritos</h3>
+                    <ul>
+                        <li><a href="#menu">Mojito</a></li>
+                        <li><a href="#menu">Matlacada de Cerveza</a></li>
+                        <li><a href="#menu">Affogato Sugar</a></li>
+                        <li><a href="#menu">Margarita Cerezada</a></li>
+                        <li><a href="#menu">Té Chai</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 2: Atención al Cliente -->
+                <div class="columna-item">
+                    <h3>📞 Atención</h3>
+                    <ul>
+                        <li><strong>Teléfono:</strong> +57 314 764 9147</li>
+                        <li><strong>Email:</strong> sugarbrowm310@gmail.com</li>
+                        <li><strong>Horario:</strong> Lun-Dom<br>9:00 AM - 10:00 PM</li>
+                        <li><a href="https://wa.me/573147649147" target="_blank">💬 Chat WhatsApp</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3: Información -->
+                <div class="columna-item">
+                    <h3>ℹ️ Información</h3>
+                    <ul>
+                        <li><strong>Ubicación:</strong><br>Carrera 4 # 5-27<br>Villa Reina, La Guajira</li>
+                        <li style="margin-top: 1rem;"><strong>Delivery:</strong><br>Disponible en la zona</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Información de la Empresa -->
+    <section class="empresa-section">
+        <div class="container">
+            <div class="empresa-content">
+                <div class="empresa-info">
+                    <h2>🍰 Sugar Browm</h2>
+                    <p><strong>Lo Hacemos Con Amor</strong></p>
+                    <p>Somos un café y bar artesanal ubicado en Villa Reina, La Guajira. Durante años hemos dedicado nuestro tiempo y pasión a crear bebidas únicas y memorables para nuestros clientes.</p>
+                    <p>Cada taza de café, cada cóctel, cada bebida que preparamos está hecha con ingredientes premium y mucho amor.</p>
+                </div>
+                <div class="empresa-stats">
+                    <div class="stat">
+                        <h4>30+</h4>
+                        <p>Productos</p>
+                    </div>
+                    <div class="stat">
+                        <h4>5+</h4>
+                        <p>Años de Experiencia</p>
+                    </div>
+                    <div class="stat">
+                        <h4>100%</h4>
+                        <p>Satisfacción</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal del Carrito -->
+    <div id="cartModal" class="cart-modal">
+        <div class="cart-modal-content">
+            <div class="cart-modal-header">
+                <h2>🛒 Mi Carrito</h2>
+                <button class="cart-close" id="cartClose">&times;</button>
+            </div>
+            <div class="cart-modal-body" id="cartItems">
+                <p class="cart-empty">Tu carrito está vacío</p>
+            </div>
+            <div class="cart-modal-footer">
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span id="cartTotal">$0</span>
+                </div>
+                <button class="btn btn-primary" id="checkoutBtn" style="width: 100%; margin-top: 1rem;">
+                    Hacer Pedido por WhatsApp
+                </button>
+                <button class="btn btn-primary" style="background: #ccc; width: 100%; margin-top: 0.5rem; color: #333;" id="cartClearBtn">
+                    Limpiar Carrito
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Botón de WhatsApp Flotante -->
+    <a href="https://wa.me/573147649147?text=Hola%20Sugar%20Browm!%20Me%20gustaría%20conocer%20más%20sobre%20sus%20productos" class="whatsapp-btn" target="_blank" title="Chat con nosotros en WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white">
+            <path d="M17.6915026,2.50469374 C14.5908547,-.244651425 10.4694035,-0.494071619 6.5872792,1.0171429 C3.18926065,2.3288822 1.03969988,4.98514154 0.817151523,8.19049254 C0.594603163,11.3958435 1.71670261,14.5028065 3.99446479,16.7349659 C6.27222695,18.9671253 9.18109933,20.3032676 12.4138149,20.4868321 L12.4138149,23.5 L16.5,20.1400401 C18.0489444,18.9110174 19.4462482,17.4896062 20.5683646,15.9061147 C23.1558687,12.1288378 23.7598095,7.49332093 21.8994832,3.51360855 Z M17.4144021,15.9061147 C16.4621767,17.1935896 15.3163265,18.4028267 14.0379944,19.3877451 L12.4138149,20.8367459 L12.4138149,18.1051335 C9.39039882,18.0648107 6.61389996,16.8127115 4.64351869,14.7741359 C2.95598055,13.0464172 2.01437911,10.6841556 2.23692747,8.13944444 C2.45947583,5.59473333 3.81299926,3.37369506 5.89862065,2.36288557 C9.19868988,0.892268328 13.0909324,1.10893351 16.1319892,3.37369506 C20.002145,6.44049571 20.5173255,12.1288378 17.4144021,15.9061147 Z"/>
+        </svg>
+    </a>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>🍰 Sugar Browm</h3>
+                    <p>Lo Hacemos Con Amor</p>
+                </div>
+                <div class="footer-section">
+                    <h4>📍 Ubicación</h4>
+                    <p>Barrio Villa Reina</p>
+                    <p>Carrera 4 # 5-27, Villa Reina, La Guajira</p>
+                </div>
+                <div class="footer-section">
+                    <h4>📱 Contacto</h4>
+                    <p><a href="tel:+573147649147">☎️ +57 314 764 9147</a></p>
+                    <p><a href="https://wa.me/573147649147" target="_blank" class="whatsapp-link">💬 Escríbenos a WhatsApp</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Sugar Browm. Todos los derechos reservados.</p>
+                <p>Hecho con ❤️ y 🍰</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
